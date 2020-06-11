@@ -1,0 +1,14 @@
+pruning: https://www.tensorflow.org/model_optimization/guide/pruning/pruning_with_keras
+
+post_quantized: https://www.tensorflow.org/model_optimization/guide/quantization/post_training
+        
+quantized : https://www.tensorflow.org/model_optimization/guide/quantization/training_example
+        
+cifar10: https://www.tensorflow.org/tutorials/images/cnn
+        
+fashion_mnist: https://www.tensorflow.org/tutorials/keras/classification?hl=ko
+        
+quan_optimization: https://www.tensorflow.org/api_docs/python/tf/lite/Optimize
+https://talkingaboutme.tistory.com/entry/Embedded-DL-Tensorflow-Lite-Quantization  
+
+TFLite convert:https://www.tensorflow.org/lite/convert/python_api

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[5]:
 
 
 import tempfile
@@ -28,7 +28,7 @@ def get_gzipped_model_size(file):
 
     return os.path.getsize(zipped_file)
 
-class FashionMnist(object):
+class Mnist(object):
     def train(self):
 
         parser = argparse.ArgumentParser()
@@ -40,37 +40,41 @@ class FashionMnist(object):
 
 
 
-        # Load Fashion MNIST dataset
-        fashion_mnist = keras.datasets.fashion_mnist
-        (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+        # Load MNIST dataset
+        mnist = tf.keras.datasets.mnist
+        (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
 
         # Normalize the input image so that each pixel value is between 0 to 1.
-        #train_images = train_images / 255.0
-        #test_images = test_images / 255.0
-        train_images = train_images / 255.0 #.astype(np.float32)
-        test_images = test_images / 255.0 #.astype(np.float32)
+        train_images = train_images / 255.0
+        test_images = test_images / 255.0
         # Define the model architecture
-        model = keras.Sequential([
-            keras.layers.Flatten(input_shape=(28, 28)),
-            keras.layers.Dense(128, activation='relu'),
-            keras.layers.Dense(10, activation='softmax')
+        model = tf.keras.Sequential([
+          tf.keras.layers.InputLayer(input_shape=(28, 28)),
+          tf.keras.layers.Reshape(target_shape=(28, 28, 1)),
+          tf.keras.layers.Conv2D(filters=12, kernel_size=(3, 3), activation='relu'),
+          tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+          tf.keras.layers.Flatten(),
+          tf.keras.layers.Dense(10)
         ])
+        
         model.summary()
 
         # Train the digit classification model
         model.compile(optimizer='adam',
-                      loss='sparse_categorical_crossentropy',
+                      loss=tf.keras.losses.SparseCategoricalCrossentropy(
+                          from_logits=True),
                       metrics=['accuracy'])
         model.fit(
           train_images,
           train_labels,
-          epochs=10,
-          validation_data=(test_images, test_labels)
+          epochs=5,
+          validation_data=(test_images, test_labels),
         )
         #model.fit(x_train, y_train, epochs=5,callbacks=[KatibMetricLog()])
 
         
         results = model.evaluate(test_images, test_labels, batch_size=128)
+        print('test loss, test acc:', results)
         
         _, model_accuracy = model.evaluate(test_images, test_labels, verbose=0)
         print("Base model accuracy : ", model_accuracy)
@@ -122,7 +126,7 @@ if __name__ == '__main__':
         from kubeflow.fairing.kubernetes import utils as k8s_utils
         fairing_run()
     else:
-        remote_train = FashionMnist()
+        remote_train = Mnist()
         remote_train.train()
         
 

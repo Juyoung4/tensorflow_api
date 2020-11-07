@@ -47,8 +47,8 @@ class FashionMnist(object):
         # Normalize the input image so that each pixel value is between 0 to 1.
         #train_images = train_images / 255.0
         #test_images = test_images / 255.0
-        train_images = train_images / 255.0 #.astype(np.float32)
-        test_images = test_images / 255.0 #.astype(np.float32)
+        train_images = train_images.astype(np.float32) / 255.0
+        test_images = test_images.astype(np.float32) / 255.0
         # Define the model architecture
         model = keras.Sequential([
             keras.layers.Flatten(input_shape=(28, 28)),
@@ -59,13 +59,14 @@ class FashionMnist(object):
 
         # Train the digit classification model
         model.compile(optimizer='adam',
-                      loss='sparse_categorical_crossentropy',
+                      loss=tf.keras.losses.SparseCategoricalCrossentropy(
+                          from_logits=True),
                       metrics=['accuracy'])
         model.fit(
           train_images,
           train_labels,
           epochs=10,
-          validation_data=(test_images, test_labels)
+          validation_split=0.1,
         )
         #model.fit(x_train, y_train, epochs=5,callbacks=[KatibMetricLog()])
 

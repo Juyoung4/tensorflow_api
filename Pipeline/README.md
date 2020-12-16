@@ -1,1 +1,1 @@
-# Kubeflow Pipeline
+# Kubeflow Pipelines

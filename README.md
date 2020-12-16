@@ -8,12 +8,12 @@
 ## ⚙ 실험 내용
 ### [1. Lightweight Deep Learning](https://github.com/Juyoung4/tensorflow_api/tree/master/Lightweight%20Deep%20Learning)
 
-### [2. Kubeflow Setting](https://github.com/Juyoung4/tensorflow_api/tree/master/Lightweight%20Deep%20Learning)
+### [2. Kubeflow Setting](https://github.com/Juyoung4/tensorflow_api/tree/master/Setting)
 
-###  [3. Kubeflow Katib](https://github.com/Juyoung4/tensorflow_api/tree/master/Lightweight%20Deep%20Learning)
+###  [3. Kubeflow Katib](https://github.com/Juyoung4/tensorflow_api/tree/master/Katib)
 
-###  [4. Kubeflow Fairing](https://github.com/Juyoung4/tensorflow_api/tree/master/Lightweight%20Deep%20Learning)
+###  [4. Kubeflow Fairing]()
 
 ###  [5. Kubeflow Pipelines](https://github.com/Juyoung4/tensorflow_api/tree/master/Lightweight%20Deep%20Learning)
 
-###  [6. Coral Board](https://github.com/Juyoung4/tensorflow_api/tree/master/Lightweight%20Deep%20Learning)
+###  [6. Coral Board](https://github.com/Juyoung4/tensorflow_api/tree/master/Coral_board)

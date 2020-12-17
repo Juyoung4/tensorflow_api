@@ -17,8 +17,8 @@
 
 ###  [3. Kubeflow Katib](https://github.com/Juyoung4/tensorflow_api/tree/master/Katib)
 
-###  [4. Kubeflow Fairing]()
+###  [4. Kubeflow Fairing](https://github.com/Juyoung4/tensorflow_api/tree/master/Fairing)
 
-###  [5. Kubeflow Pipelines](https://github.com/Juyoung4/tensorflow_api/tree/master/Lightweight%20Deep%20Learning)
+###  [5. Kubeflow Pipelines](https://github.com/Juyoung4/tensorflow_api/tree/master/Pipelines)
 
 ###  [6. Coral Board](https://github.com/Juyoung4/tensorflow_api/tree/master/Coral_board)
